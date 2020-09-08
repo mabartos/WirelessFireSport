@@ -1,4 +1,3 @@
-#ifdef CLIENT
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -185,5 +184,3 @@ void setUpWifi() {
 
     client.subscribe(t_slaveAll.c_str());
 }
-
-#endif

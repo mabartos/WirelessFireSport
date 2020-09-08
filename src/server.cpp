@@ -1,10 +1,12 @@
-#ifdef SERVER
+
 
 #include <ESP8266WiFi.h>
-#include "uMQTTBroker.h"
+
+#include <string>
+
 #include "credentials.h"
 #include "topics.h"
-#include <string>
+#include "uMQTTBroker.h"
 
 using namespace std;
 
@@ -32,9 +34,8 @@ String toString(const char *data);
 
 void calibrateDevices();
 
-
 class MQTTBroker : public uMQTTBroker {
-public:
+   public:
     virtual bool onConnect(IPAddress addr, uint16_t client_count) {
         Serial.println(addr.toString() + " connected");
         return true;
@@ -67,7 +68,6 @@ public:
 
         Serial.println("received topic '" + topic + "' with data '" + data_str + "'");
     }
-
 };
 
 MQTTBroker myBroker;
@@ -76,23 +76,19 @@ MQTTBroker myBroker;
 //-------------------------------------------//
 
 void setup() {
-
     pinMode(BUTTON, INPUT);
     Serial.begin(9600);
     delay(5000);
     // Start WiFi
     startWiFiClient();
 
-
     Serial.println("Starting MQTT broker");
     myBroker.init();
     myBroker.subscribe("com/master/#");
     calibrateDevices();
-
 }
 
 void loop() {
-
     if (!calibrating) {
         if ((digitalRead(BUTTON) == HIGH) && !isStarted) {
             startTime = millis();
@@ -108,7 +104,6 @@ void loop() {
         }
     }
     delay(2);
-
 }
 
 //------------------OTHER FUNCTIONS---------------------//
@@ -119,7 +114,7 @@ String toString(const char *data) {
 }
 
 void startWiFiClient() {
-    Serial.println("Connecting to " + (String) SSID);
+    Serial.println("Connecting to " + (String)SSID);
     WiFi.mode(WIFI_STA);
     WiFi.begin(SSID, PASS);
 
@@ -147,6 +142,3 @@ void calibrateDevices() {
         delay(10);
     }
 }
-
-#endif
-
