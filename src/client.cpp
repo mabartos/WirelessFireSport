@@ -3,9 +3,11 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <stdlib.h>
+
 #include <string>
-#include "topics.h"
+
 #include "credentials.h"
+#include "topics.h"
 
 //------------------DECLARING VARIABLES---------------------//
 //----------------------------------------------------------//
@@ -146,7 +148,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
     char messageChar[length + 1];
     for (int i = 0; i < length; i++) {
-        messageChar[i] = (char) payload[i];
+        messageChar[i] = (char)payload[i];
     }
     messageChar[length] = '\0';
 
