@@ -10,6 +10,7 @@ using namespace std;
 class ClientWifiManager : public WifiManager {
    public:
     ClientWifiManager(const string &ssid, const string &password);
+    ClientWifiManager(const char *ssid, const char *password);
     ~ClientWifiManager() = default;
 
     void initWifi();

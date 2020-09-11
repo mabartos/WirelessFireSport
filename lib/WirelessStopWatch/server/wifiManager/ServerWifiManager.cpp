@@ -3,6 +3,9 @@
 ServerWifiManager::ServerWifiManager(const IPAddress ipAddress, const string &ssid, const string &pass) : WifiManager(ssid, pass), _ipAddress(ipAddress) {
 }
 
+ServerWifiManager::ServerWifiManager(const IPAddress ipAddress, const char *ssid, const char *password) : WifiManager(ssid, pass), _ipAddress(ipAddress) {
+}
+
 IPAddress ServerWifiManager::getIpAddress() {
     return _ipAddress;
 }

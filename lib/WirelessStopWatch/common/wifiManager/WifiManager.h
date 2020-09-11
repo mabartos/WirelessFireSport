@@ -16,6 +16,7 @@ class WifiManager {
 
    public:
     WifiManager(const string &ssid, const string &password);
+    WifiManager(const char *ssid, const char *password);
     ~WifiManager() = default;
 
     string getSSID();

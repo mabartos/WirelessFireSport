@@ -11,6 +11,7 @@ class ServerWifiManager : public WifiManager {
 
    public:
     ServerWifiManager(const IPAddress ipAddress, const string &ssid, const string &pass);
+    ServerWifiManager(const IPAddress ipAddress, const char *ssid, const char *password);
     ~ServerWifiManager() = default;
 
     IPAddress getIpAddress();

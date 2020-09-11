@@ -1,4 +1,8 @@
 #include "WifiManager.h"
+WifiManager::WifiManager(const string &ssid, const string &password) : _ssid(ssid), _pass(password) {}
+
+WifiManager::WifiManager(const char *ssid, const char *password) : _ssid(ssid), _pass(password) {
+}
 
 uint16_t WifiManager::getPort() {
     return _port;

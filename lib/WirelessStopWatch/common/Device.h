@@ -15,7 +15,7 @@ class Device {
 
    public:
     Device(const long& id);
-    ~Device() = default;
+    virtual ~Device(){};
 
     virtual void init() = 0;
 

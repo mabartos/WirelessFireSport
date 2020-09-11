@@ -1,10 +1,10 @@
-#ifndef TARGET_CLIENT_H
-#define TARGET_CLIENT_H
-#include "../Client.h"
+#ifndef TARGETS_DEVICE_H
+#define TARGETS_DEVICE_H
+#include "client/ClientDevice.h"
 
 using namespace std;
 
-class TargetClient : public Client {
+class TargetsDevice : public ClientDevice {
    private:
     uint8_t _leftPin = -1;
     uint8_t _rightPin = -1;
@@ -15,8 +15,11 @@ class TargetClient : public Client {
     bool _activeLevel = 1;
 
    public:
-    TargetClient(const long &id, const uint8_t &leftPin, const uint8_t &rightPin);
-    ~TargetClient() = default;
+    TargetsDevice(const long &id, const uint8_t &leftPin, const uint8_t &rightPin);
+    ~TargetsDevice() = default;
+
+    void init();
+    void checkState();
 
     uint8_t getLeftPin();
     void setLeftPin(const long &pin);
@@ -27,10 +30,8 @@ class TargetClient : public Client {
     bool getActiveLevel();
     void setActiveLevel(const bool &activeLevel);
 
-    void checkState();
-
     bool isLeftActive();
     bool isRightActive();
 };
 
-#endif  //TARGET_CLIENT_H
+#endif  //TARGETS_DEVICE_H
