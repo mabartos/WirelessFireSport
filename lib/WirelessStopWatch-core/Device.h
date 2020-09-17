@@ -14,10 +14,11 @@ class Device {
     bool _isCalibrated = false;
 
    public:
+    Device() = default;
     Device(const long& id);
-    virtual ~Device(){};
+    ~Device() = default;
 
-    virtual void init() = 0;
+    virtual void init();
 
     string getName();
     void setName(const string& name);

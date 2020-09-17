@@ -1,6 +1,6 @@
 #ifndef TARGETS_DEVICE_H
 #define TARGETS_DEVICE_H
-#include "client/ClientDevice.h"
+#include <ClientDevice.h>
 
 using namespace std;
 
@@ -18,8 +18,8 @@ class TargetsDevice : public ClientDevice {
     TargetsDevice(const long &id, const uint8_t &leftPin, const uint8_t &rightPin);
     ~TargetsDevice() = default;
 
-    void init();
-    void checkState();
+    void init() override;
+    void checkState() override;
 
     uint8_t getLeftPin();
     void setLeftPin(const long &pin);

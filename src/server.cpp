@@ -1,11 +1,13 @@
 #ifdef SERVER
 
+#include <Arduino.h>
+#include <ServerDevice.h>
+#include <mqttBroker/BartMqttBroker.h>
+#include <wifiManager/ServerWifiManager.h>
+
 #include <string>
 
 #include "credentials.h"
-#include "server/ServerDevice.h"
-#include "server/mqttBroker/BartMqttBroker.h"
-#include "server/wifiManager/ServerWifiManager.h"
 
 using namespace std;
 
@@ -16,6 +18,7 @@ BartMqttBroker broker(SERVER_IP, BROKER_PORT);
 void setup() {
     wifiManager.initWifi();
     device.init();
+    broker.init();
 }
 
 void loop() {

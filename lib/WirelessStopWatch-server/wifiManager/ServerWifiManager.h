@@ -1,9 +1,9 @@
 #ifndef SERVER_WIFI_MANAGER_H
 #define SERVER_WIFI_MANAGER_H
 
-#include <string>
+#include <wifiManager/WifiManager.h>
 
-#include "common/wifiManager/WifiManager.h"
+#include <string>
 
 class ServerWifiManager : public WifiManager {
    protected:

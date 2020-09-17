@@ -1,13 +1,13 @@
 #include "BartMqttBroker.h"
 
-#include "server/messageForwarder/ServerMessageForwarder.h"
+#include <messageForwarder/ServerMessageForwarder.h>
 
 ServerMessageForwarder forwader;
 
 BartMqttBroker::BartMqttBroker(const IPAddress &ipAddress, const uint16_t port) : uMQTTBroker(), _ipAddress(ipAddress), _port(port) {
 }
 
-BartMqttBroker::BartMqttBroker(const IPAddress &ipAddress, const uint16_t port, const string &username, const string &password) : uMQTTBroker(), _port(port) _username(username), _password(password) {
+BartMqttBroker::BartMqttBroker(const IPAddress &ipAddress, const uint16_t port, const string &username, const string &password) : uMQTTBroker(), _ipAddress(ipAddress), _port(port), _username(username), _password(password) {
 }
 
 string BartMqttBroker::getUsername() {
@@ -30,7 +30,7 @@ bool BartMqttBroker::onConnect(IPAddress addr, uint16_t client_count) {
 bool BartMqttBroker::onAuth(String username, String password) {
     if (_username == "" || _password == "")
         return true;
-    return (username == _username && password == _password);
+    return (strcmp(username.c_str(), username.c_str()) == 0 && strcmp(password.c_str(), _password.c_str()) == 0);
 }
 
 void BartMqttBroker::onData(String topic, const char *data, uint32_t length) {

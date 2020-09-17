@@ -1,9 +1,9 @@
 #include "ClientWifiManager.h"
 
-ClientWifiManager::ClientWifiManager(const string &ssid, const string &password) : WifiManager(ssid, password) {
+ClientWifiManager::ClientWifiManager(const char *ssid, const char *password) : WifiManager(ssid, password) {
 }
 
-ClientWifiManager::ClientWifiManager(const char *ssid, const char *password) : WifiManager(ssid, password) {
+ClientWifiManager::ClientWifiManager(const string &ssid, const string &password) : WifiManager(ssid, password) {
 }
 
 void ClientWifiManager::initWifi() {

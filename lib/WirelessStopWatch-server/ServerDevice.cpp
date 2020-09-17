@@ -6,7 +6,8 @@ ServerDevice::ServerDevice() : Device(0) {
 ServerDevice::ServerDevice(const long &id) : Device(id) {
 }
 
-void ServerDevice::init() {}
+void ServerDevice::init() {
+}
 
 string ServerDevice::getURL() {
     return _url;

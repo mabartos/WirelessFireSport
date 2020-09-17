@@ -1,10 +1,9 @@
 #ifndef BART_MQTT_BROKER_H
 #define BART_MQTT_BROKER_H
 #include <ESP8266WiFi.h>
+#include <uMQTTBroker.h>
 
 #include <string>
-
-#include "uMQTTBroker.h"
 using namespace std;
 
 class BartMqttBroker : public uMQTTBroker {

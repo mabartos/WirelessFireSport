@@ -3,6 +3,9 @@
 Device::Device(const long& id) : _id(id) {
 }
 
+void Device::init() {
+}
+
 string Device::getName() {
     return _name;
 }

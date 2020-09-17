@@ -1,10 +1,12 @@
 #ifdef CLIENT
 
+#include <Arduino.h>
+#include <mqttClient/BartMqttClient.h>
+#include <targetDevice/TargetsDevice.h>
+#include <wifiManager/ClientWifiManager.h>
+
 #include <string>
 
-#include "client/mqttClient/BartMqttClient.h"
-#include "client/targetDevice/TargetsDevice.h"
-#include "client/wifiManager/ClientWifiManager.h"
 #include "credentials.h"
 #include "topics.h"
 

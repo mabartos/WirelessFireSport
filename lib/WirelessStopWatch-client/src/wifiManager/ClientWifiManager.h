@@ -1,9 +1,9 @@
 #ifndef WIFI_MANAGER_CLIENT_H
 #define WIFI_MANAGER_CLIENT_H
 
-#include <string>
+#include <wifiManager/WifiManager.h>
 
-#include "common/wifiManager/WifiManager.h"
+#include <string>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ class ClientWifiManager : public WifiManager {
     ClientWifiManager(const char *ssid, const char *password);
     ~ClientWifiManager() = default;
 
-    void initWifi();
+    void initWifi() override;
 };
 
 #endif  //WIFI_MANAGER_CLIENT_H

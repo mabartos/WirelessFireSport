@@ -1,7 +1,7 @@
 #ifndef CLIENT_DEVICE_H
 #define CLIENT_DEVICE_H
 
-#include "common/Device.h"
+#include <Device.h>
 using namespace std;
 
 class ClientDevice : public Device {
@@ -14,7 +14,7 @@ class ClientDevice : public Device {
 
     bool isConnected();
 
-    virtual void checkState() = 0;
+    virtual void checkState();
 };
 
 #endif  //CLIENT_DEVICE_H

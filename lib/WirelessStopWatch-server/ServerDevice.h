@@ -1,12 +1,12 @@
 #ifndef SERVER_DEVICE_H
 #define SERVER_DEVICE_H
 
+#include <ClientDevice.h>
+#include <Device.h>
+
 #include <memory>
 #include <string>
 #include <vector>
-
-#include "client/ClientDevice.h"
-#include "common/Device.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ class ServerDevice : public Device {
    public:
     ServerDevice();
     ServerDevice(const long &id);
-    virtual ~ServerDevice(){};
+    ~ServerDevice() = default;
 
     void init();
 

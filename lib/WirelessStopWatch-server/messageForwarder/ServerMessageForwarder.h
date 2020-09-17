@@ -1,7 +1,7 @@
 #ifndef SERVER_MESSAGE_FORWARDER_H
 #define SERVER_MESSAGE_FORWARDER_H
 
-#include "common/messageForwarder/MessageForwarder.h"
+#include <messageForwarder/MessageForwarder.h>
 
 class ServerMessageForwarder : MessageForwarder {
    public:

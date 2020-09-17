@@ -1,12 +1,12 @@
 #include "BartMqttClient.h"
 
-#include "client/messageForwarder/ClientMessageForwarder.h"
+#include <messageForwarder/ClientMessageForwarder.h>
 
 WiFiClient wclient;
 PubSubClient client(wclient);
-ClientMessageForwader forwarder;
+ClientMessageForwarder forwarder;
 
-BartMqttClient::BartMqttClient(const string id, const IPAddress &serverIP, const uint16_t serverPort) : _client(client), _id(id),_serverIP(serverIP), _serverPort(serverPort)) {
+BartMqttClient::BartMqttClient(const string id, const IPAddress &serverIP, const uint16_t serverPort) : _client(client), _id(id), _serverIP(serverIP), _serverPort(serverPort) {
     client.setServer(_serverIP, _serverPort);
     client.setCallback([this](char *topic, byte *payload, unsigned int length) { this->callback(topic, payload, length); });
 }
