@@ -1,5 +1,6 @@
 #ifndef TARGETS_DEVICE_H
 #define TARGETS_DEVICE_H
+#include <ArduinoJson.h>
 #include <ClientDevice.h>
 
 using namespace std;
@@ -20,6 +21,7 @@ class TargetsDevice : public ClientDevice {
 
     void init() override;
     void checkState() override;
+    void reactToMessage(const string &topic, const JsonObject &obj) override;
 
     uint8_t getLeftPin();
     void setLeftPin(const long &pin);

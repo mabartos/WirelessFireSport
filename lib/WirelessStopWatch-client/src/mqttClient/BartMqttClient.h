@@ -17,7 +17,7 @@ class BartMqttClient {
     uint16_t _serverPort;
     PubSubClient &_client;
 
-    void callback(char *topic, byte *payload, unsigned int length);
+    void callback(char *topic, uint8_t *payload, unsigned int length);
 
    public:
     BartMqttClient(const string id, const IPAddress &serverIP, const uint16_t serverPort);

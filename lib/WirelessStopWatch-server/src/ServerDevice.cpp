@@ -1,12 +1,19 @@
 #include "ServerDevice.h"
 
-ServerDevice::ServerDevice() : Device(0) {
+ServerDevice::ServerDevice() : ServerDevice(0) {
 }
 
 ServerDevice::ServerDevice(const long &id) : Device(id) {
+    setTopicPrefix(SERVER_TOPIC_PREFIX);
 }
 
 void ServerDevice::init() {
+}
+
+void ServerDevice::reactToMessage(const string &topic, const JsonObject &obj) {
+    if (!containsTopic(topic)) {
+        return;
+    }
 }
 
 string ServerDevice::getURL() {

@@ -16,14 +16,16 @@ const string DEVICE_NAME = "targetClient";
 const long DEVICE_ID = 1;
 
 ClientWifiManager wifiManager(SSID, PASS);
-BartMqttClient mqttClient(DEVICE_NAME, SERVER_IP, BROKER_PORT);
 TargetsDevice device(DEVICE_ID, D0, D1);
+BartMqttClient mqttClient(DEVICE_NAME, SERVER_IP, BROKER_PORT);
 
 void setup() {
     Serial.begin(9600);
     wifiManager.initWifi();
     mqttClient.init();
     device.init();
+
+    device.calibrate();
 }
 
 void loop() {

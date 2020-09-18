@@ -6,6 +6,8 @@ using namespace std;
 
 class ClientDevice : public Device {
    private:
+    const string CLIENT_TOPIC_PREFIX = "client/";
+
     bool _isConnected;
 
    public:

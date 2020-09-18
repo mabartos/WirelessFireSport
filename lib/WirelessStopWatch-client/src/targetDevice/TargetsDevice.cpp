@@ -12,6 +12,13 @@ void TargetsDevice::init() {
     pinMode(_rightPin, INPUT_PULLUP);
 }
 
+void TargetsDevice::reactToMessage(const string &topic, const JsonObject &obj) {
+    if (!containsTopic(topic))
+        return;
+
+    //TODO
+}
+
 void TargetsDevice::checkState() {
     _leftState = digitalRead(_leftPin);
     _rightState = digitalRead(_rightPin);

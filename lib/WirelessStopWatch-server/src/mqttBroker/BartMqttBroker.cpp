@@ -1,8 +1,11 @@
 #include "BartMqttBroker.h"
 
+#include <ServerDevice.h>
 #include <messageForwarder/ServerMessageForwarder.h>
 
-ServerMessageForwarder forwader;
+extern ServerDevice device;
+
+ServerMessageForwarder forwader(device);
 
 BartMqttBroker::BartMqttBroker(const IPAddress &ipAddress, const uint16_t port) : uMQTTBroker(), _ipAddress(ipAddress), _port(port) {
 }
@@ -39,5 +42,5 @@ void BartMqttBroker::onData(String topic, const char *data, uint32_t length) {
     data_str[length] = '\0';
 
     Serial.println("received topic '" + topic + "' with data '" + data_str + "'");
-    forwader.forwardMessage((String)topic, data, length);
+    forwader.forwardMessage(topic.c_str(), data, length);
 }

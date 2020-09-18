@@ -11,8 +11,9 @@
 
 using namespace std;
 
-ServerWifiManager wifiManager(SERVER_IP, SSID, PASS);
 ServerDevice device;
+
+ServerWifiManager wifiManager(SERVER_IP, SSID, PASS);
 BartMqttBroker broker(SERVER_IP, BROKER_PORT);
 
 void setup() {

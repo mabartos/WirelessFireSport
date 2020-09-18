@@ -12,6 +12,8 @@ using namespace std;
 
 class ServerDevice : public Device {
    private:
+    const string SERVER_TOPIC_PREFIX = "server/";
+
     string _url = "";
     uint16_t _port = -1;
     vector<shared_ptr<ClientDevice>> _clients;
@@ -22,6 +24,7 @@ class ServerDevice : public Device {
     ~ServerDevice() = default;
 
     void init();
+    void reactToMessage(const string &topic, const JsonObject &obj) override;
 
     string getURL();
     void setURL(const string &url);

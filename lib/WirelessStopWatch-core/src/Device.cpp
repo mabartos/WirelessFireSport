@@ -1,9 +1,17 @@
 #include "Device.h"
 
-Device::Device(const long& id) : _id(id) {
+#include <Arduino.h>
+
+Device::Device(const long& id) : TopicsCommon(id), _id(id) {
+}
+
+Device::Device(const long& id, const string& topicPrefix) : TopicsCommon(id, topicPrefix), _id(id) {
 }
 
 void Device::init() {
+}
+
+void Device::reactToMessage(const string& topic, const JsonObject& obj) {
 }
 
 string Device::getName() {
@@ -16,6 +24,11 @@ void Device::setName(const string& name) {
 
 long Device::getID() {
     return _id;
+}
+
+// Calibration
+void Device::calibrate() {
+    _calibTime = millis();
 }
 
 long Device::getCalibTime() {
